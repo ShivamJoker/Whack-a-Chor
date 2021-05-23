@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+body{
+    font: 900 18px Arial;
+    overflow: hidden;
+}
+
+h1{
+    margin: 0.2rem 0 0.5rem 0;
+    text-align: center;
+}
+
+ul{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(30px, 1fr) );
+    grid-template-rows: repeat( auto-fit, minmax(30px, 1fr) );
+}
+
+li{
+    position: relative;
+    background: #ffc13b;
+    border: 0.001rem solid #fef2d9;
+    width: 30px;
+    height: 30px;
+}
+
+li .bubble {
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: none;
+    width: 100px;
+    height: 100px;
+    padding: 100px 0 0 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    animation: popout 2s ease-in-out;
+    text-align: center;
+}
+
+li .bubble.one{
+    background:#fff url('img/sde.png') no-repeat center center;
+    background-size: cover;
+}
+li .bubble.two{
+    background:#fff url('img/innocent.png') no-repeat center center;
+    background-size: cover;
+}
+li .bubble.three{
+    background:#fff url('img/problem.png') no-repeat center center;
+    background-size: cover;
+}
+li .bubble.four{
+    background:#fff url('img/coder.png') no-repeat center center;
+    background-size: cover;
+}
+li .bubble.five{
+    background:#fff url('img/intern.png') no-repeat center center;
+    background-size: cover;
+}
+
+li:hover{
+    cursor: url(img/hammer.png), auto;
+}
+
+@keyframes popout {
+    from{transform:scale(0)}
+    to{transform:scale(1.2)}
+}
