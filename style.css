@@ -96,7 +96,7 @@ li .bunny i span {
 }
 
 li .bunny.show {
-  transform: translateY(-120%);
+    transform:translateY(-510px);
 }
 
 .hammer {
