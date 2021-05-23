@@ -1,6 +1,5 @@
 (() => {
   let hammer = document.querySelector(".hammer");
-  let elemArray = document.querySelectorAll("ul li");
   const bang = document.getElementById("bang");
   const fPersons = [
     "Hey! I am <br />Intern Srivastava<br /><span>I know Tuti Futi English</span>",
