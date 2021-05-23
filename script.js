@@ -19,17 +19,16 @@
     const currentHole = holes[randomHoleIdx];
     currentHole.querySelector("i").innerHTML = randomChor;
     currentHole.classList.add("show");
-    currentHole.style.zIndex = 1;
+    currentHole.style.zIndex = "1";
     setTimeout(() => {
       currentHole.classList.remove("show");
       currentHole.style.zIndex = "";
-    }, 1400);
-  }, 1500);
+    }, 2000);
+  }, 2500);
 
   holes.forEach((el) => {
     el.addEventListener("click", (e) => {
       if (!e.currentTarget.classList.contains("show")) return;
-      console.warn("You did it");
       e.currentTarget.classList.remove("show");
       bang.play();
     });
