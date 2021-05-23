@@ -8,6 +8,10 @@ ul, ol{
     list-style: none;
 }
 
+.notShow{
+    display: none;
+}
+
 body{
     background:url('img/bg.jpeg') no-repeat 0 0 fixed;
     font: 400 18px 'Pattaya', sans-serif;
@@ -68,7 +72,7 @@ li .bunny{
     left: 35px;
     z-index: -1;
     transition: all 300ms;
-    transform:translateY(-210px);
+    transform:translateY(-180px);
     line-height: 1.1;
 }
 
@@ -96,7 +100,7 @@ li .bunny.show{
 }
 
 .hammer{
-    background: url(img/hammer.png) 0 0 no-repeat;
+    background: url('img/hammer.png') 0 0 no-repeat;
     min-height: 300px;
     display: inline-block;
     position: absolute;
@@ -109,4 +113,22 @@ li .bunny.show{
 
 #bang{
     display: none;
+}
+
+@media (max-width: 1023px) {
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+    .notShow{
+        display: block;
+        font-size: 2rem;
+        text-align: center;
+        padding: 20px;
+    }
+    .wrapper{
+        display: none;
+    }
 }
