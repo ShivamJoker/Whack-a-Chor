@@ -1,134 +1,135 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul, ol{
-    list-style: none;
+ul,
+ol {
+  list-style: none;
 }
 
-.notShow{
-    display: none;
+.notShow {
+  display: none;
 }
 
-body{
-    background:url('img/bg.jpeg') no-repeat 0 0 fixed;
-    font: 400 18px 'Pattaya', sans-serif;
-    background-size: cover;
-    overflow: hidden;
-    letter-spacing: 0.025rem;
-    cursor: none;
+body {
+  background: url("img/bg.jpeg") no-repeat 0 0 fixed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-size: cover;
+  overflow: hidden;
+  letter-spacing: 0.025rem;
+  cursor: none;
 }
 
-.wrapper{
-    max-width: 1024px;
-    margin: 0 auto;
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
-h1{
-    border-radius: 10px;
-    background: #fcf5e6;
-    padding: 20px 0;
-    margin: 0 0 0.5rem 0;
-    text-align: center;
-    font-size: 3rem;
+h1 {
+  border-radius: 10px;
+  background: #fcf5e6;
+  padding: 20px 0;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  font-size: 3rem;
 }
 
-h1 span{
-    color: rgb(123, 121, 121);
-    display: block;
-    margin: 0.2rem 0 0.5rem 0;
-    font-size: 1.4rem;
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+h1 span {
+  color: rgb(123, 121, 121);
+  display: block;
+  margin: 0.2rem 0 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: normal;
 }
 
-ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    min-height:70vh;
-    flex-direction:column;
-    justify-content:flex-end;
-    text-align: center;
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  min-height: 70vh;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
 }
 
-li{
-    background:url('img/shelf.png') no-repeat center 100%;
-    position: relative;
-    background-size: contain;
-    margin: 0 25px;
-    overflow: hidden;
+li {
+  background: url("img/shelf.png") no-repeat center 100%;
+  position: relative;
+  background-size: contain;
+  margin: 0 25px;
+  overflow: hidden;
 }
 
-li .bunny{
-    background: url('img/bunny.png') no-repeat 0 130px;
-    background-size: contain;
-    display: inline-block;
-    width: 150px;
-    min-height: 280px;
-    position: absolute;
-    top: 728px;
-    left: 35px;
-    z-index: -1;
-    transition: all 300ms;
-    transform:translateY(-180px);
-    line-height: 1.1;
+li .bunny {
+  background: url("img/bunny.png") no-repeat 0 130px;
+  background-size: contain;
+  display: inline-block;
+  width: 150px;
+  min-height: 280px;
+  position: absolute;
+  top: 728px;
+  left: 35px;
+  z-index: -1;
+  transition: transform 200ms;
+  transform: translateY(100%);
+  line-height: 1.1;
 }
 
-li .bunny i{
-    background: #f6e2b4;
-    display: inline-block;
-    padding: 40px 10px 0 10px;
-    border-radius: 50%;
-    width: 160px;
-    height: 160px;
-    font-style: normal;
+li .bunny i {
+  background: #f6e2b4;
+  display: inline-block;
+  padding: 40px 10px 0 10px;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  font-style: normal;
 }
 
-li .bunny i span{
-    color: rgb(80, 80, 80);
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    display: inline-block;
-    max-width: 120px;
-    font-family: Arial, Helvetica, sans-serif;
+li .bunny i span {
+  color: rgb(80, 80, 80);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+  max-width: 120px;
 }
 
-li .bunny.show{
-    transform:translateY(-510px);
+li .bunny.show {
+  transform: translateY(-120%);
 }
 
-.hammer{
-    background: url('img/hammer.png') 0 0 no-repeat;
-    min-height: 300px;
-    display: inline-block;
-    position: absolute;
-    z-index: 1;
-    width: 150px;
-    height: 150px;
-    background-size: contain;
-    transition: all 100ms;
+.hammer {
+  background: url("img/hammer.png") 0 0 no-repeat;
+  min-height: 300px;
+  display: inline-block;
+  position: absolute;
+  z-index: 100;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  pointer-events: none;
 }
 
-#bang{
-    display: none;
+#bang {
+  display: none;
 }
 
 @media (max-width: 1023px) {
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-    }
-    .notShow{
-        display: block;
-        font-size: 2rem;
-        text-align: center;
-        padding: 20px;
-    }
-    .wrapper{
-        display: none;
-    }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .notShow {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+  }
+  .wrapper {
+    display: none;
+  }
 }
+
