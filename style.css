@@ -80,6 +80,7 @@ li .bunny {
 li .bunny i {
   background: #f6e2b4;
   display: inline-block;
+  font-size: 1.2rem;
   padding: 40px 10px 0 10px;
   border-radius: 50%;
   width: 160px;
@@ -89,7 +90,7 @@ li .bunny i {
 
 li .bunny i span {
   color: rgb(80, 80, 80);
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
   display: inline-block;
 }

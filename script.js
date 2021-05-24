@@ -13,11 +13,21 @@
 
   const getRandomIdx = () => Math.floor(Math.random() * holes.length);
 
+  const speak = (txt) => {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(txt);
+    utterance.rate = 1.2;
+    speechSynthesis.speak(utterance);
+  };
+
   setInterval(() => {
     const randomHoleIdx = getRandomIdx();
     const randomChor = fPersons[getRandomIdx()];
     const currentHole = holes[randomHoleIdx];
-    currentHole.querySelector("i").innerHTML = randomChor;
+    const nameEl = currentHole.querySelector("i");
+    nameEl.innerHTML = randomChor;
+    speak(nameEl.innerText);
+
     currentHole.style.transition = "";
     currentHole.classList.add("show");
     currentHole.style.background = ' url("img/bunny.png") no-repeat 0 100px';
@@ -25,9 +35,8 @@
     currentHole.style.zIndex = 1;
     setTimeout(() => {
       currentHole.classList.remove("show");
-      currentHole.style.zIndex = "";
-    }, 1400);
-  }, 1500);
+    }, 2000);
+  }, 3500);
 
   holes.forEach((el) => {
     el.addEventListener("click", (e) => {
@@ -38,6 +47,7 @@
         ' url("img/bunny_dead.png") no-repeat 0 100px';
       currentEl.style.transition = "transform 2s ease-in";
 
+      currentEl.style.zIndex = "";
       currentEl.classList.remove("show");
 
       setTimeout(() => {
