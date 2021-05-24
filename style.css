@@ -23,10 +23,10 @@ body {
   cursor: none;
 }
 
-.wrapper{
-    max-width: 1280px;
-    padding: 20px;
-    margin: 0 auto;
+.wrapper {
+  max-width: 1280px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -80,34 +80,34 @@ li .bunny {
 li .bunny i {
   background: #f6e2b4;
   display: inline-block;
+  font-size: 1.2rem;
   padding: 40px 10px 0 10px;
   border-radius: 50%;
-  width: 160px;
-  height: 160px;
+  width: 170px;
+  height: 170px;
   font-style: normal;
 }
 
 li .bunny i span {
   color: rgb(80, 80, 80);
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
   display: inline-block;
 }
 
 li .bunny.show {
-    transform:translateY(-570px);
+  transform: translateY(-570px);
 }
 
 .hammer {
   background: url("img/hammer.png") center 0 no-repeat;
-  min-height: 150px;
-  display: inline-block;
-  position: absolute;
+  position: fixed;
   z-index: 100;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   background-size: contain;
   pointer-events: none;
+  transform-origin: bottom right;
 }
 
 #bang {
@@ -131,4 +131,3 @@ li .bunny.show {
     display: none;
   }
 }
-
