@@ -36,11 +36,10 @@
   });
 
   const getTranslate = (e) => {
-    return `translate(${e.pageX - 75}px, ${e.pageY - 75}px)`;
+    return `translate(${e.clientX - 50}px, ${e.clientY - 75}px)`;
   };
   document.addEventListener("mousemove", (e) => {
-    hammer.style.transform = `translateY(${e.pageY}px)`;
-    hammer.style.transform += `translateX(${e.pageX}px)`;
+    hammer.style.transform = getTranslate(e);
   });
 
   document.addEventListener("mousedown", (e) => {
@@ -49,10 +48,9 @@
   });
 
   document.addEventListener("mouseup", (e) => {
+    hammer.style.transform = `${getTranslate(e)} rotate(0deg)`;
     setTimeout(() => {
-      hammer.style.transform = `${getTranslate(e)} rotate(0deg)`;
       hammer.style.transition = "none";
-    }, 150);
+    }, 100);
   });
 })();
-

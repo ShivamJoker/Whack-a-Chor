@@ -24,7 +24,8 @@ body {
 }
 
 .wrapper {
-  max-width: 1024px;
+  max-width: 1280px;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -46,12 +47,9 @@ h1 span {
 }
 
 ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  min-height: 70vh;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: flex;
   text-align: center;
+  height: 530px;
 }
 
 li {
@@ -60,17 +58,19 @@ li {
   background-size: contain;
   margin: 0 25px;
   overflow: hidden;
+  width: 25%;
+  text-align: center;
 }
 
 li .bunny {
-  background: url("img/bunny.png") no-repeat 0 130px;
+  background: url("img/bunny.png") no-repeat 0 100px;
   background-size: contain;
   display: inline-block;
-  width: 150px;
-  min-height: 280px;
+  width: 100%;
+  min-height: 400px;
   position: absolute;
-  top: 728px;
-  left: 35px;
+  top: 718px;
+  left: 0;
   z-index: -1;
   transition: transform 200ms;
   transform: translateY(100%);
@@ -92,26 +92,25 @@ li .bunny i span {
   font-size: 0.9rem;
   margin-top: 0.5rem;
   display: inline-block;
-  max-width: 120px;
 }
 
 li .bunny.show {
-  transform: translateY(-120%);
+  transform: translateY(-570px);
 }
 
 .hammer {
-  background: url("img/hammer.png") 0 0 no-repeat;
-  display: inline-block;
+  background: url("img/hammer.png") center 0 no-repeat;
   position: fixed;
   z-index: 100;
   width: 150px;
   height: 150px;
   background-size: contain;
   pointer-events: none;
+  transform-origin: bottom right;
 }
 
 #bang {
-  display: none;
+  opacity: none;
 }
 
 @media (max-width: 1023px) {
@@ -131,4 +130,3 @@ li .bunny.show {
     display: none;
   }
 }
-
