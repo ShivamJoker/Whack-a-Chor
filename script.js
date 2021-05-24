@@ -1,36 +1,90 @@
-(() =>{
-    let hammer = document.querySelector(".hammer");
-    let elemArray = document.querySelectorAll("ul li");
-    const bang = document.getElementById("bang");
-    const fPersons = ['Hey! I am <br />Intern Srivastava<br /><span>I know Tuti Futi English</span>', 'Hey! I am  <br />SDE Garg<br /><span>I like stupid Comments</span>', 'Hey! I am  <br />Innocent Singh<br /><span>I steal code from GitHub</span>', 'Hey! I am  <br />Problem Mishra<br /><span>I support Innocent problems</span>'];
+(() => {
+  let hammer = document.querySelector(".hammer");
+  let elemArray = document.querySelectorAll("ul li");
+  const bang = document.getElementById("bang");
+  const fPersons = [
+    "Hey! I am <br />Intern Srivastava<br /><span>I know Tuti Futi English</span>",
+    "Hey! I am  <br />SDE Garg<br /><span>I like stupid Comments</span>",
+    "Hey! I am  <br />Innocent Singh<br /><span>I steal code from GitHub</span>",
+    "Hey! I am  <br />Problem Mishra<br /><span>I support Innocent problems</span>",
+  ];
 
-    setInterval(() =>{
-        for(let i=0; i<elemArray.length; i++){
-            elemArray[i].querySelector('.bunny').classList.remove(elemArray[i].querySelector('.bunny').classList.item(1));
-                elemArray[i].addEventListener('click', (e)=>{
-                    if(e.target.querySelector('.bunny').classList.contains('show')){
-                        bang.play();
-                        e.target.querySelector('.bunny').classList.remove('show');
-                    }
-                });
-        };
+  const holes = document.querySelectorAll(".bunny");
 
-        let randomNumber = Math.floor(Math.random() * 4);
-        elemArray[randomNumber].querySelector('.bunny i').innerHTML = fPersons[randomNumber];
-        elemArray[randomNumber].querySelector('.bunny').classList.add('show');
+  const getRandomIdx = () => Math.floor(Math.random() * holes.length);
+
+  const speak = (txt, rate = 1.2, pitch = 1) => {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(txt);
+    utterance.rate = rate;
+    utterance.pitch = pitch;
+    speechSynthesis.speak(utterance);
+  };
+
+  setInterval(() => {
+    const randomHoleIdx = getRandomIdx();
+    const randomChor = fPersons[getRandomIdx()];
+    const currentHole = holes[randomHoleIdx];
+    const nameEl = currentHole.querySelector("i");
+    nameEl.innerHTML = randomChor;
+    speak(nameEl.innerText);
+
+    currentHole.style.transition = "";
+    currentHole.classList.add("show");
+    currentHole.style.background = "";
+
+    currentHole.style.zIndex = 1;
+    setTimeout(() => {
+      currentHole.classList.remove("show");
     }, 2000);
+  }, 4000);
 
-    document.addEventListener('mousemove', (evt)=>{
-        hammer.style.transform = `translate(${evt.screenX}px, ${evt.screenY}px)`;
-    });
+  holes.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const currentEl = e.currentTarget;
+      if (!currentEl.classList.contains("show")) return;
+      console.warn("You did it");
+      speak("Mommy save me!", 1, 1.8);
+      currentEl.style.background =
+        'url("./img/bunny-dead.png") no-repeat 0 100px';
+      currentEl.style.transition = "transform 2s ease-in";
 
-    document.addEventListener('mousedown', (evt)=>{
-        hammer.style.transform = `translate(${evt.screenX}px, ${evt.screenY}px) rotate(-45deg)`;
-    });
+      currentEl.style.zIndex = "";
+      currentEl.classList.remove("show");
 
-    document.addEventListener('mouseup', (evt)=>{
-        setTimeout(()=>{
-            hammer.style.transform = `translate(${evt.screenX}px, ${evt.screenY}px) rotate(0deg)`;
-        }, 200);
+      setTimeout(() => {
+        currentEl.style.transition = "";
+      }, 2000);
+      bang
+        .play()
+        .then(() => {})
+        .catch((e) => console.log(e));
     });
+  });
+
+  const getTranslate = (e) => {
+    return `translate(${e.clientX - 50}px, ${e.clientY - 75}px)`;
+  };
+
+  let isMouseDown = false;
+  document.addEventListener("mousemove", (e) => {
+    hammer.style.transform = getTranslate(e);
+    if (isMouseDown) {
+      hammer.style.transform += `rotate(-45deg)`;
+    }
+  });
+
+  document.addEventListener("mousedown", (e) => {
+    isMouseDown = true;
+    hammer.style.transition = "transform 50ms";
+    hammer.style.transform += `rotate(-45deg)`;
+  });
+
+  document.addEventListener("mouseup", (e) => {
+    hammer.style.transform = `${getTranslate(e)} rotate(0deg)`;
+    isMouseDown = false;
+    setTimeout(() => {
+      hammer.style.transition = "none";
+    }, 100);
+  });
 })();
