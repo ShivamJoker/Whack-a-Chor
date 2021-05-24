@@ -46,7 +46,7 @@
       console.warn("You did it");
       speak("Mommy save me!", 1, 1.8);
       currentEl.style.background =
-        ' url("./img/bunny_dead.png") no-repeat 0 100px';
+        'url("./img/bunny-dead.png") no-repeat 0 100px';
       currentEl.style.transition = "transform 2s ease-in";
 
       currentEl.style.zIndex = "";
