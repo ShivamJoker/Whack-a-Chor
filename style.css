@@ -101,9 +101,8 @@ li .bunny.show {
 
 .hammer {
   background: url("img/hammer.png") 0 0 no-repeat;
-  min-height: 300px;
   display: inline-block;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 150px;
   height: 150px;

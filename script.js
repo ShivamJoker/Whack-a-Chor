@@ -36,10 +36,11 @@
   });
 
   const getTranslate = (e) => {
-    return `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+    return `translate(${e.pageX - 75}px, ${e.pageY - 75}px)`;
   };
   document.addEventListener("mousemove", (e) => {
-    hammer.style.transform = getTranslate(e);
+    hammer.style.transform = `translateY(${e.pageY}px)`;
+    hammer.style.transform += `translateX(${e.pageX}px)`;
   });
 
   document.addEventListener("mousedown", (e) => {
