@@ -13,10 +13,11 @@
 
   const getRandomIdx = () => Math.floor(Math.random() * holes.length);
 
-  const speak = (txt) => {
+  const speak = (txt, rate = 1.2, pitch = 1) => {
     speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(txt);
-    utterance.rate = 1.2;
+    utterance.rate = rate;
+    utterance.pitch = pitch;
     speechSynthesis.speak(utterance);
   };
 
@@ -30,19 +31,20 @@
 
     currentHole.style.transition = "";
     currentHole.classList.add("show");
-    currentHole.style.background = ' url("img/bunny.png") no-repeat 0 100px';
+    currentHole.style.background = 'url("img/bunny.png") no-repeat 0 100px';
 
     currentHole.style.zIndex = 1;
     setTimeout(() => {
       currentHole.classList.remove("show");
     }, 2000);
-  }, 3500);
+  }, 4000);
 
   holes.forEach((el) => {
     el.addEventListener("click", (e) => {
       const currentEl = e.currentTarget;
       if (!currentEl.classList.contains("show")) return;
       console.warn("You did it");
+      speak("Mommy save me!", 1, 1.8);
       currentEl.style.background =
         ' url("img/bunny_dead.png") no-repeat 0 100px';
       currentEl.style.transition = "transform 2s ease-in";
