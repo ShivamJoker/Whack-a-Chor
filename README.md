@@ -1,5 +1,6 @@
 # Whack-a-Chor
-Whack opensource robbers - https://whackachor.xyz
+
+Whack opensource robbers - https://shivamjoker.github.io/Whack-a-Chor/
 
 https://user-images.githubusercontent.com/23727670/119331523-10a7f300-bca5-11eb-963f-7945c43be4bf.mp4
 
